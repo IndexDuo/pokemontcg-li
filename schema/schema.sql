@@ -5,3 +5,11 @@ CREATE TABLE users (
   username VARCHAR(100) NOT NULL UNIQUE,
   password VARCHAR(200) NOT NULL
 );
+
+CREATE TABLE deck (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  deck_name VARCHAR(100) NOT NULL
+  card_name VARCHAR(100) NOT NULL,
+  image VARCHAR(100) NOT NULL,
+  description TEXT
+);
