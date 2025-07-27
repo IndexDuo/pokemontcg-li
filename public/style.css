@@ -1,139 +1,197 @@
 :root {
-  --black: #020303;
-  --dark-grey: #171c1c;
-  --light-grey: #a7b9b7;
-  --primary: #5cc1bb;
-  --primary-dark: #41aaa3;
-  --secondary: hsl(15deg 100% 62%);
-  --secondary-light: hsl(15deg 100% 70%);
-  --text-color: #f5fffe;
-  --space: 16px;
-  --font-size: 18px;
+    --black: #020303;
+    --dark-grey: #171c1c;
+    --light-grey: #a7b9b7;
+    --primary: #5cc1bb;
+    --primary-dark: #41aaa3;
+    --secondary: hsl(15deg 100% 62%);
+    --secondary-light: hsl(15deg 100% 70%);
+    --text-color: #f5fffe;
+    --space: 16px;
+    --font-size: 18px;
 }
 
 body {
-  background-color: var(--primary-dark);
-  color: var(--text-color);
-  font-size: var(--font-size);
-  line-height: 1.5;
-  padding: 0;
-  margin: 0;
-  font-family: helvetica;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    background-color: var(--primary-dark);
+    color: var(--text-color);
+    font-size: var(--font-size);
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    font-family: helvetica;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  background-color: var(--black);
-  padding: var(--space) calc(var(--space) * 3);
-  text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: var(--black);
+    padding: var(--space) calc(var(--space) * 3);
+    text-align: center;
 }
 
 main,
 main form {
-  border-radius: 4px;
+    border-radius: 4px;
 }
 
 h1 {
-  font-size: calc(var(--font-size) * 2.25);
+    font-size: calc(var(--font-size) * 2.25);
 }
 h2 {
-  font-size: calc(var(--font-size) * 2);
+    font-size: calc(var(--font-size) * 2);
 }
 h3 {
-  font-size: calc(var(--font-size) * 1.5);
+    font-size: calc(var(--font-size) * 1.5);
 }
 
 a {
-  color: var(--secondary-light);
-  transition: color 200ms;
+    color: var(--secondary-light);
+    transition: color 200ms;
 }
 a:hover,
 a:focus {
-  color: var(--secondary);
+    color: var(--secondary);
+}
+a.button {
+    background-color: var(--secondary-light);
+    color: black;
+    border-radius: 8px;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+a.button:hover,
+a.button:focus {
+    background-color: var(--secondary);
+    color: white;
 }
 
 button.btn {
-  border: var(--text-color);
-  border-radius: 4px;
-  background-color: var(--secondary-light);
-  padding: calc(var(--space) * 0.75) calc(var(--space) * 2);
-  cursor: pointer;
-  transition: background-color 200ms;
+    border: var(--text-color);
+    border-radius: 4px;
+    background-color: var(--secondary-light);
+    padding: calc(var(--space) * 0.75) calc(var(--space) * 2);
+    cursor: pointer;
+    transition: background-color 200ms;
 }
 button.btn-text {
-  border: none;
-  background-color: transparent;
-  color: var(--secondary-light);
-  transition: 200ms;
-  cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: var(--secondary-light);
+    transition: 200ms;
+    cursor: pointer;
 }
 
 button.btn:hover,
 button.btn:focus {
-  background-color: var(--secondary);
+    background-color: var(--secondary);
 }
 button.btn-text:hover,
 button.btn-text:focus {
-  color: var(--secondary);
+    color: var(--secondary);
 }
 header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--black);
-  margin-bottom: calc(var(--space) * 6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--black);
+    margin-bottom: calc(var(--space) * 6);
 }
 header a {
-  margin: var(--space);
+    margin: var(--space);
 }
 header .site-logo {
-  font-size: calc(var(--font-size) * 1.5);
-  margin: var(--space);
-  margin-right: auto;
+    font-size: calc(var(--font-size) * 1.5);
+    margin: var(--space);
+    margin-right: auto;
 }
 
 .site-logo {
-  text-align: center;
-  color: var(--text-color);
-  text-decoration: none;
-  margin: calc(var(--space) * 4) auto;
-  display: block;
-  font-size: calc(var(--font-size) * 2.5);
-  font-weight: bold;
+    text-align: center;
+    color: var(--text-color);
+    text-decoration: none;
+    margin: calc(var(--space) * 4) auto;
+    display: block;
+    font-size: calc(var(--font-size) * 2.5);
+    font-weight: bold;
 }
 
 .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: calc(var(--space) * 3) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: calc(var(--space) * 3) 0;
 }
 
 .login-form .login-error {
-  color: var(--secondary-light);
+    color: var(--secondary-light);
 }
 
 .login-form input {
-  margin-bottom: calc(var(--space) * 2);
-  padding: calc(var(--space) * 0.5) calc(var(--space) * 1);
+    margin-bottom: calc(var(--space) * 2);
+    padding: calc(var(--space) * 0.5) calc(var(--space) * 1);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.card-item {
+    background: white;
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-item img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.card-name,
+.card-date {
+    color: #222;
+    font-size: 0.75em;
+    margin: 2px 0;
+    font-weight: normal;
+    text-align: center;
 }
 
 @media screen and (max-width: 700px) {
-  .site-logo {
-    font-size: calc(var(--font-size) * 1.25);
-    margin: 0;
-  }
-  header .site-logo {
-    font-size: var(--font-size);
-  }
-  header a {
-    margin: calc(var(--space) / 2);
-  }
+    .site-logo {
+        font-size: calc(var(--font-size) * 1.25);
+        margin: 0;
+    }
+    header .site-logo {
+        font-size: var(--font-size);
+    }
+    header a {
+        margin: calc(var(--space) / 2);
+    }
+}
+
+@media (max-width: 830px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 522px) {
+    .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

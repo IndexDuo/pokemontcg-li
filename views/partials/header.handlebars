@@ -1,11 +1,11 @@
 <header>
-  <a class="site-logo" href="/">
-    Auth Example! 🕵️
-  </a>
-  {{#if isLoggedIn}}
-    <a href="/api/logout">Logout</a>
-  {{else}}
-    <a href="/login">Login</a>
-    <a href="/signup">Sign Up</a>
-  {{/if}}
+    <a class="btn site-logo" href="/">
+        Pokemon Collection Library
+    </a>
+    {{#if isLoggedIn}}
+        <a class="button" href="/api/logout">Logout</a>
+    {{else}}
+        <a class="button" href="/login">Login</a>
+        <a class="button" href="/signup">Sign Up</a>
+    {{/if}}
 </header>

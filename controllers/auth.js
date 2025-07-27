@@ -1,31 +1,41 @@
 const { User } = require("../models");
 
 async function login(req, res) {
-  try {
-    const { username, password } = req.body;
+    try {
+        const { username, password } = req.body;
 
-    if (!username || !password)
-      return res.redirect("/login?error=must include username and password");
+        if (!username || !password)
+            return res.redirect(
+                "/login?error=must include username and password"
+            );
 
-    const user = await User.findByUsername(username);
+        const user = await User.findByUsername(username);
 
-    if (!user)
-      return res.redirect("/login?error=username or password is incorrect");
+        if (!user)
+            return res.redirect(
+                "/login?error=username or password is incorrect"
+            );
 
-    const passwordMatches = await User.checkPassword(password, user.password);
+        const passwordMatches = await User.checkPassword(
+            password,
+            user.password
+        );
 
-    if (!passwordMatches)
-      return res.redirect("/login?error=username or password is incorrect");
+        if (!passwordMatches)
+            return res.redirect(
+                "/login?error=username or password is incorrect"
+            );
+        req.session.userId = user.id;
+        req.session.isLoggedIn = true;
 
-    req.session.isLoggedIn = true;
-    req.session.save(() => res.redirect("/"));
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
+        req.session.save(() => res.redirect("/"));
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
 }
 
 async function logout(req, res) {
-  req.session.destroy(() => res.redirect("/"));
+    req.session.destroy(() => res.redirect("/"));
 }
 
 module.exports = { login, logout };

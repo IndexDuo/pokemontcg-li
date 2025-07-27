@@ -10,17 +10,37 @@ router.get("/logout", controllers.auth.logout);
 router.post("/signup", controllers.user.create);
 
 //add card
-router.post("/cards", async (req, res) => {
+router.post("/collection", checkAuth, async (req, res) => {
     try {
         const { card_name, image, date_of_collection } = req.body;
 
         await db.query(
-            `insert INTO mycollections (card_name, image, date_of_collection) VALUES (?,?,?)`,
-            [card_name, image, date_of_collection]
+            `INSERT INTO mycollections (user_id, card_name, image, date_of_collection)
+       VALUES (?, ?, ?, ?)`,
+            [
+                req.session.userId,
+                card_name,
+                image,
+                date_of_collection || "1900-01-01",
+            ]
         );
-        res.redirect("/collections");
+
+        res.redirect("/");
     } catch (err) {
-        res.status(500).end();
+        res.status(500).end;
+    }
+});
+
+// remove card
+router.post("/collection/:id", checkAuth, async (req, res) => {
+    try {
+        await db.query("DELETE FROM mycollections WHERE id=? AND user_id=?", [
+            req.params.id,
+            req.session.userId,
+        ]);
+        res.redirect("/");
+    } catch (err) {
+        res.status(500).end;
     }
 });
 

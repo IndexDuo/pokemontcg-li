@@ -8,7 +8,9 @@ CREATE TABLE users (
 
 CREATE TABLE mycollections (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
   card_name VARCHAR(100) NOT NULL,
   image VARCHAR(100) NOT NULL,
-  date_of_collection DATE NOT NULL DEFAULT '1900-01-01'
+  date_of_collection DATE,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

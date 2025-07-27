@@ -1,7 +1,35 @@
 {{> header}}
 <main>
-  <h1>This is the home page!</h1>
-  <p>Currently, you are {{#unless isLoggedIn}} NOT {{/unless}} logged in.</p>
-  <p>You should {{#unless isLoggedIn}}NOT{{/unless}} be able to access <a href="/private">this page</a>.</p>
-  <p>Use the header above to {{#if isLoggedIn}} logout{{else}} login or create an account{{/if}}.</p>
+  {{#unless isLoggedIn}}
+    <h1>This is the home page!</h1>
+    <p>You are NOT logged in.</p>
+    <p>You should NOT be able to access <a href="/private">this page</a>.</p>
+    <p>Use the header above to login or create an account.</p>
+  {{else}}
+    <h2>My Pokemon Cards</h2>
+    <section>
+      <p>
+        <a href="/search">
+          <button class="btn">Add More Cards</button>
+        </a>
+      </p>
+      <div class="card-grid">
+        {{#each cards}}
+          <div class="card-item">
+            <img src="{{image}}" alt="{{card_name}}" />
+            <p class="card-name">{{card_name}}</p>
+            {{#if formattedDate}}
+              <p class="card-date">Collected on {{formattedDate}}</p>
+            {{else}}
+              <p class="card-date">No collection date</p>
+            {{/if}}
+
+            <form action="/api/collection/{{id}}" method="POST">
+              <button type="submit">Remove</button>
+            </form>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  {{/unless}}
 </main>
