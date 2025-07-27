@@ -12,7 +12,8 @@
 }
 
 body {
-    background-color: var(--primary-dark);
+    background: url("/sky.jpg") no-repeat center center fixed;
+    background-size: 100% auto;
     color: var(--text-color);
     font-size: var(--font-size);
     line-height: 1.5;

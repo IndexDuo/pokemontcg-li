@@ -1,6 +1,6 @@
 {{> header}}
 
-<div align="center">
+<main>
   <h2>Search Your Pokemon Cards</h2>
 
   <form method="GET" action="/search">
@@ -9,25 +9,22 @@
   </form>
 
   {{#if cards.length}}
-    <div>
+    <div class="card-grid">
       {{#each cards}}
-        <div>
+        <div class="card-item">
           <img src="{{this.image}}" alt="{{this.name}}" />
-          <div>
-            <h5>{{this.name}}</h5>
-            <form method="POST" action="/api/collection">
-              <input type="hidden" name="card_name" value="{{this.name}}" />
-              <input type="hidden" name="image" value="{{this.image}}" />
-              <label for="date">Date of Collection:</label>
-              <input type="date" name="date_of_collection" />
-              <button>Add to My Collection</button>
-            </form>
-          </div>
+          <p class="card-name">{{this.name}}</p>
+          <form class="add-form" method="POST" action="/api/collection">
+            <input type="hidden" name="card_name" value="{{this.name}}" />
+            <input type="hidden" name="image" value="{{this.image}}" />
+            <label for="date">Date of Collection:</label>
+            <input type="date" name="date_of_collection" />
+            <button>Add to My Collection</button>
+          </form>
         </div>
-        <br>
       {{/each}}
     </div>
   {{else}}
     <p>No cards found..yet!</p>
   {{/if}}
-</div>
+</main>
