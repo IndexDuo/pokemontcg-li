@@ -6,10 +6,9 @@ CREATE TABLE users (
   password VARCHAR(200) NOT NULL
 );
 
-CREATE TABLE deck (
+CREATE TABLE mycollections (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  deck_name VARCHAR(100) NOT NULL
   card_name VARCHAR(100) NOT NULL,
   image VARCHAR(100) NOT NULL,
-  description TEXT
+  date_of_collection DATE NOT NULL DEFAULT '1900-01-01'
 );
